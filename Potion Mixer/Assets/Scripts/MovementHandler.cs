@@ -5,10 +5,18 @@ using UnityEngine;
 
 public class MovementHandler : MonoBehaviour
 {
+    private Renderer pickedFlower;
+    private Renderer pickedGarlic;
+    private Renderer human;
+    private Renderer mouse;
+
     // Use this for initialization
     void Start()
     {
-
+        pickedFlower = GameObject.Find("Picked Flower").GetComponent<Renderer>();
+        pickedGarlic = GameObject.Find("Picked Garlic").GetComponent<Renderer>();
+        human = GameObject.Find("Human").GetComponent<Renderer>();
+        mouse = GameObject.Find("Mouse").GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -16,69 +24,82 @@ public class MovementHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            MoveHeroTo(Direction.Up);
+            MoveTo(Direction.Up);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            MoveHeroTo(Direction.Down);
+            MoveTo(Direction.Down);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            MoveHeroTo(Direction.Right);
+            MoveTo(Direction.Right);
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            MoveHeroTo(Direction.Left);
+            MoveTo(Direction.Left);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             RevealBlock();
         }
-
     }
 
     public bool HasFlower
     {
-        get { return GameObject.Find("Picked Flower").GetComponent<Renderer>().enabled; }
-        set { GameObject.Find("Picked Flower").GetComponent<Renderer>().enabled = value; }
+        get { return pickedFlower.enabled; }
+        set { pickedFlower.enabled = value; }
     }
 
     public bool HasGarlic
     {
-        get { return GameObject.Find("Picked Garlic").GetComponent<Renderer>().enabled; }
-        set { GameObject.Find("Picked Garlic").GetComponent<Renderer>().enabled = value; }
+        get { return pickedGarlic.enabled; }
+        set { pickedGarlic.enabled = value; }
     }
 
     public bool IsHuman
     {
-        get { return GameObject.Find("Human").GetComponent<Renderer>().enabled; }
-        set { GameObject.Find("Human").GetComponent<Renderer>().enabled = value; }
+        get { return human.enabled; }
+        set { human.enabled = value; }
     }
 
     public bool IsMouse
     {
-        get { return GameObject.Find("Mouse").GetComponent<Renderer>().enabled; }
-        set { GameObject.Find("Mouse").GetComponent<Renderer>().enabled = value; }
+        get { return mouse.enabled; }
+        set { mouse.enabled = value; }
+    }
+
+    public int CurrentHorizontalPosition
+    {
+        get { return Convert.ToInt32(this.transform.position.x); }
+    }
+
+    public int CurrentVerticalPosition
+    {
+        get { return Convert.ToInt32(this.transform.position.z); }
     }
 
     private void RevealBlock()
     {
         var currentBlock = GetCurrentBlock();
         var item = currentBlock.transform.Find("Item Container");
+
         if (item == null)
         {
             return;
         }
 
-        item.transform.position = new Vector3(item.transform.position.x, item.transform.position.y + .25f, item.transform.position.z);
+        item.transform.position = new Vector3(item.transform.position.x, .25f, item.transform.position.z);
+
         if (item.Find("Flower") != null)
         {
             HasFlower = true;
         }
+
         if (item.Find("Garlic") != null)
         {
             HasGarlic = true;
         }
+
         if (HasFlower && HasGarlic)
         {
             IsHuman = false;
@@ -86,39 +107,73 @@ public class MovementHandler : MonoBehaviour
             HasFlower = false;
             HasGarlic = false;
         }
-
     }
 
     private Transform GetCurrentBlock()
     {
-        var horizontal = Convert.ToInt32(this.transform.position.x);
-        var vertical = Convert.ToInt32(this.transform.position.z);
+        return GetBlock(CurrentHorizontalPosition, CurrentVerticalPosition);
+    }
+
+    private Transform GetBlock(int horizontal, int vertical)
+    {
         var row = GameObject.Find("Row (" + vertical + ")");
+        if (row == null)
+        {
+            return null;
+        }
         return row.transform.Find("TerrainBlock (" + horizontal + ")");
     }
 
-    private void MoveHeroTo(Direction direction)
+    private void MoveTo(Direction direction)
     {
-        float horizontal = 0f;
-        float vertical = 0f;
+        int horizontalChange = 0;
+        int verticalChange = 0;
 
         switch (direction)
         {
             case Direction.Up:
-                vertical = 1f;
+                verticalChange = 1;
                 break;
             case Direction.Down:
-                vertical = -1f;
+                verticalChange = -1;
                 break;
             case Direction.Right:
-                horizontal = 1f;
+                horizontalChange = 1;
                 break;
             case Direction.Left:
-                horizontal = -1f;
+                horizontalChange = -1;
                 break;
         }
-        var currentPosition = this.transform.position;
-        this.transform.position = new Vector3(currentPosition.x + horizontal, currentPosition.y, currentPosition.z + vertical);
+
+        int nextHorizontal = CurrentHorizontalPosition + horizontalChange;
+        int nextVertical = CurrentVerticalPosition + verticalChange;
+
+        if (IsValidPosition(nextHorizontal, nextVertical))
+        {
+            this.transform.position = new Vector3(nextHorizontal, 0, nextVertical);
+        }        
+    }
+
+    private bool IsValidPosition(int horizontal, int vertical)
+    {
+        var nextBlock = GetBlock(horizontal, vertical);
+
+        if (nextBlock == null)
+        {
+            return false;
+        }
+
+        if (nextBlock.CompareTag("Grass"))
+        {
+            return true;
+        }
+
+        if (IsMouse && nextBlock.CompareTag("Rock"))
+        {
+            return true;
+        }
+
+        return false;
     }
 }
 
