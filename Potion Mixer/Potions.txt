@@ -1,0 +1,17 @@
+﻿{Mushroom,Garlic,Flower} 
+{Mushroom,Garlic,Berry}
+{Mushroom,Garlic,Salt}
+{Mushroom,Flower,Berry}
+{Mushroom,Flower,Salt}
+{Mushroom,Berry,Salt}
+{Garlic,Flower,Berry}
+{Garlic,Flower,Salt}
+{Garlic,Berry,Salt}
+{Flower,Berry,Salt}
+
+Mouse - small, quick
+Frog - jump(2 tiles)
+Chihuahua - noisy
+Bear - big, strong
+
+
