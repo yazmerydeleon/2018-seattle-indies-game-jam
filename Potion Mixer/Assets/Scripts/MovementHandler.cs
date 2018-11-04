@@ -27,6 +27,7 @@ public class MovementHandler : MonoBehaviour
     private Renderer life2b;
     private Renderer life3b;
     private Renderer gameOver;
+    private Renderer youWon;
 
     // Use this for initialization
     void Start()
@@ -48,12 +49,21 @@ public class MovementHandler : MonoBehaviour
         life2b = GameObject.Find("Life2b").GetComponent<Renderer>();
         life3b = GameObject.Find("Life3b").GetComponent<Renderer>();
         gameOver = GameObject.Find("Game Over").GetComponent<Renderer>();
+        youWon = GameObject.Find("You Won").GetComponent<Renderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (gameOver.enabled)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("MainScene");
+            }
+        }
+
+        if (youWon.enabled)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -242,6 +252,7 @@ public class MovementHandler : MonoBehaviour
                 gameOver.enabled = true;
             }
         }
+
     }
 
     private Transform GetCurrentBlock()
@@ -317,6 +328,7 @@ public class MovementHandler : MonoBehaviour
         {
             IsChestOpened = true;
             HasKey = false;
+            youWon.enabled = true;
             return false;
         }
 
