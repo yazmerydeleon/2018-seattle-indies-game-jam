@@ -274,25 +274,32 @@ public class MovementHandler : MonoBehaviour
     {
         int horizontalChange = 0;
         int verticalChange = 0;
+        int faceDirection = 0;
 
         switch (direction)
         {
             case Direction.Up:
                 verticalChange = 1;
+                faceDirection = 180;
                 break;
             case Direction.Down:
                 verticalChange = -1;
+                faceDirection = 0;
                 break;
             case Direction.Right:
                 horizontalChange = 1;
+                faceDirection = 270;
                 break;
             case Direction.Left:
                 horizontalChange = -1;
+                faceDirection = 90;
                 break;
         }
 
         int nextHorizontal = CurrentHorizontalPosition + horizontalChange;
         int nextVertical = CurrentVerticalPosition + verticalChange;
+
+        this.transform.eulerAngles = new Vector3(0, faceDirection, 0);
 
         if (IsValidPosition(nextHorizontal, nextVertical))
         {
