@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -197,7 +197,7 @@ Transform:
   m_GameObject: {fileID: 17020188}
   m_LocalRotation: {x: -0.031662755, y: -0.01041811, z: 0.2260012, w: 0.97355664}
   m_LocalPosition: {x: 4.92, y: 1.13, z: 9.59}
-  m_LocalScale: {x: 0.39977005, y: 0.39977005, z: 0.39977005}
+  m_LocalScale: {x: 0.3997702, y: 0.39977008, z: 0.39977023}
   m_Children:
   - {fileID: 1552026218}
   m_Father: {fileID: 1357904775}
@@ -1371,6 +1371,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4165509314934206, guid: fa47ea185ea0b7843861ab7399231d2f,
     type: 2}
   m_PrefabInternal: {fileID: 204119822}
+--- !u!1 &261843376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 261843379}
+  - component: {fileID: 261843378}
+  - component: {fileID: 261843377}
+  m_Layer: 0
+  m_Name: Game Over
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!102 &261843377
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 261843376}
+  m_Text: Game Over
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 33
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &261843378
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 261843376}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!4 &261843379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 261843376}
+  m_LocalRotation: {x: 0.32836655, y: -0, z: -0, w: 0.94455045}
+  m_LocalPosition: {x: -3.79, y: 3.9124808, z: 5.161884}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 38.339, y: 0, z: 0}
 --- !u!1 &283303038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,7 +1469,7 @@ GameObject:
   - component: {fileID: 283303041}
   - component: {fileID: 283303040}
   m_Layer: 0
-  m_Name: Life1_1
+  m_Name: Life1b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1539,7 +1625,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b5540654936cb240a1798e8915261d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLives: 0
 --- !u!4 &308907288
 Transform:
   m_ObjectHideFlags: 0
@@ -3339,7 +3424,7 @@ GameObject:
   - component: {fileID: 714289701}
   - component: {fileID: 714289700}
   m_Layer: 0
-  m_Name: Life1_1
+  m_Name: Life2b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6840,7 +6925,7 @@ GameObject:
   - component: {fileID: 1552026220}
   - component: {fileID: 1552026219}
   m_Layer: 0
-  m_Name: Life1_1
+  m_Name: Life3b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

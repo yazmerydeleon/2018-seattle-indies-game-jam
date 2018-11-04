@@ -2,15 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementHandler : MonoBehaviour
 {
-    public int playerLives;
-
     private Renderer pickedFlower;
     private Renderer pickedGarlic;
     private Renderer human;
     private Renderer mouse;
+
+    private Renderer life1;
+    private Renderer life2;
+    private Renderer life3;
+    private Renderer life1b;
+    private Renderer life2b;
+    private Renderer life3b;
+    private Renderer gameOver;
 
     // Use this for initialization
     void Start()
@@ -19,11 +26,26 @@ public class MovementHandler : MonoBehaviour
         pickedGarlic = GameObject.Find("Picked Garlic").GetComponent<Renderer>();
         human = GameObject.Find("Human").GetComponent<Renderer>();
         mouse = GameObject.Find("Mouse").GetComponent<Renderer>();
+        life1 = GameObject.Find("Life1").GetComponent<Renderer>();
+        life2 = GameObject.Find("Life2").GetComponent<Renderer>();
+        life3 = GameObject.Find("Life3").GetComponent<Renderer>();
+        life1b = GameObject.Find("Life1b").GetComponent<Renderer>();
+        life2b = GameObject.Find("Life2b").GetComponent<Renderer>();
+        life3b = GameObject.Find("Life3b").GetComponent<Renderer>();
+        gameOver = GameObject.Find("Game Over").GetComponent<Renderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameOver.enabled)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("MainScene");
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             MoveTo(Direction.Up);
@@ -80,6 +102,38 @@ public class MovementHandler : MonoBehaviour
         get { return Convert.ToInt32(this.transform.position.z); }
     }
 
+    public int PlayerLives
+    {
+        get
+        {
+            if (life3.enabled)
+            {
+                return 3;
+            }
+            if (life2.enabled)
+            {
+                return 2;
+            }
+            if (life1.enabled)
+            {
+                return 1;
+            }
+            return 0;
+        }
+        set
+        {
+            life3.enabled = value >= 3;
+            life2.enabled = value >= 2;
+            life1.enabled = value >= 1;
+            life3b.enabled = value >= 3;
+            life2b.enabled = value >= 2;
+            life1b.enabled = value >= 1;
+        }
+    }
+
+
+
+
     private void RevealBlock()
     {
         var currentBlock = GetCurrentBlock();
@@ -112,7 +166,11 @@ public class MovementHandler : MonoBehaviour
 
         if (item.Find("Spider") != null)
         {
-            playerLives--;
+            PlayerLives--;
+            if (PlayerLives == 0)
+            {
+                gameOver.enabled = true;
+            }
         }
     }
 
@@ -158,7 +216,7 @@ public class MovementHandler : MonoBehaviour
         if (IsValidPosition(nextHorizontal, nextVertical))
         {
             this.transform.position = new Vector3(nextHorizontal, 0, nextVertical);
-        }        
+        }
     }
 
     private bool IsValidPosition(int horizontal, int vertical)
