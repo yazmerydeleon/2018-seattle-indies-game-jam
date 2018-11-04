@@ -23,9 +23,6 @@ public class MovementHandler : MonoBehaviour
     private Renderer life1;
     private Renderer life2;
     private Renderer life3;
-    private Renderer life1b;
-    private Renderer life2b;
-    private Renderer life3b;
     private Renderer gameOver;
     private Renderer youWon;
 
@@ -45,9 +42,6 @@ public class MovementHandler : MonoBehaviour
         life1 = GameObject.Find("Life1").GetComponent<Renderer>();
         life2 = GameObject.Find("Life2").GetComponent<Renderer>();
         life3 = GameObject.Find("Life3").GetComponent<Renderer>();
-        life1b = GameObject.Find("Life1b").GetComponent<Renderer>();
-        life2b = GameObject.Find("Life2b").GetComponent<Renderer>();
-        life3b = GameObject.Find("Life3b").GetComponent<Renderer>();
         gameOver = GameObject.Find("Game Over").GetComponent<Renderer>();
         youWon = GameObject.Find("You Won").GetComponent<Renderer>();
     }
@@ -184,9 +178,6 @@ public class MovementHandler : MonoBehaviour
             life3.enabled = value >= 3;
             life2.enabled = value >= 2;
             life1.enabled = value >= 1;
-            life3b.enabled = value >= 3;
-            life2b.enabled = value >= 2;
-            life1b.enabled = value >= 1;
         }
     }
 
