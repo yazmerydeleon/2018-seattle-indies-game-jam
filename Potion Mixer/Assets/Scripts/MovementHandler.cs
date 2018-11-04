@@ -208,7 +208,7 @@ public class MovementHandler : MonoBehaviour
             return;
         }
 
-        item.transform.position = new Vector3(item.transform.position.x, .5f, item.transform.position.z);
+        item.transform.position = new Vector3(item.transform.position.x, 1f, item.transform.position.z);
 
         if (item.Find("Flower") != null)
         {
