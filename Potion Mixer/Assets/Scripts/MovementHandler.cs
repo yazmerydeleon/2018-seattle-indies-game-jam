@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class MovementHandler : MonoBehaviour
 {
+    public int playerLives;
+
     private Renderer pickedFlower;
     private Renderer pickedGarlic;
     private Renderer human;
@@ -106,6 +108,11 @@ public class MovementHandler : MonoBehaviour
             IsMouse = true;
             HasFlower = false;
             HasGarlic = false;
+        }
+
+        if (item.Find("Spider") != null)
+        {
+            playerLives--;
         }
     }
 

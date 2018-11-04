@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23239984294858008}
   - component: {fileID: 65794537308573542}
   m_Layer: 0
-  m_Name: RockBlock
+  m_Name: TerrainBlock (5)
   m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
