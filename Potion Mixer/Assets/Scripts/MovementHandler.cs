@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class MovementHandler : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class MovementHandler : MonoBehaviour
     public GameObject spiderDamageEffect;
     public GameObject treasureEffect;
 
-    private Renderer pickedFlower;
+    private Renderer[] pickedFlower;
     private Renderer pickedGarlic;
     private Renderer pickedMushroom;
     private Renderer pickedBerry;
@@ -33,7 +34,8 @@ public class MovementHandler : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        pickedFlower = GameObject.Find("Picked Flower").GetComponent<Renderer>();
+        pickedFlower = GameObject.Find("Picked Flower").GetComponentsInChildren<Renderer>();
+
         pickedGarlic = GameObject.Find("Picked Garlic").GetComponent<Renderer>();
         pickedMushroom = GameObject.Find("Picked Mushroom").GetComponent<Renderer>();
         pickedBerry = GameObject.Find("Picked Berry").GetComponent<Renderer>();
@@ -93,8 +95,8 @@ public class MovementHandler : MonoBehaviour
 
     public bool HasFlower
     {
-        get { return pickedFlower.enabled; }
-        set { pickedFlower.enabled = value; }
+        get { return pickedFlower.First().enabled; }
+        set { ShowAllChildren(pickedFlower, value); }
     }
 
     public bool HasGarlic
@@ -185,6 +187,14 @@ public class MovementHandler : MonoBehaviour
         }
     }
 
+    void ShowAllChildren(Renderer[] children, bool enable)
+    {
+        foreach (var renderer in children)
+        {
+            renderer.enabled = enable;
+        }
+    }
+
     private void RevealBlock()
     {
         var currentBlock = GetCurrentBlock();
@@ -198,7 +208,7 @@ public class MovementHandler : MonoBehaviour
             return;
         }
 
-        item.transform.position = new Vector3(item.transform.position.x, .15f, item.transform.position.z);
+        item.transform.position = new Vector3(item.transform.position.x, .5f, item.transform.position.z);
 
         if (item.Find("Flower") != null)
         {
