@@ -12,6 +12,7 @@ public class MovementHandler : MonoBehaviour
     private Renderer pickedGarlic;
     private Renderer pickedMushroom;
     private Renderer pickedBerry;
+    private Renderer pickedKey;
 
     private Renderer human;
     private Renderer mouse;
@@ -32,6 +33,7 @@ public class MovementHandler : MonoBehaviour
         pickedGarlic = GameObject.Find("Picked Garlic").GetComponent<Renderer>();
         pickedMushroom = GameObject.Find("Picked Mushroom").GetComponent<Renderer>();
         pickedBerry = GameObject.Find("Picked Berry").GetComponent<Renderer>();
+        pickedKey = GameObject.Find("Picked Key").GetComponent<Renderer>();
         human = GameObject.Find("Human").GetComponent<Renderer>();
         mouse = GameObject.Find("Mouse").GetComponent<Renderer>();
         frog = GameObject.Find("Frog").GetComponent<Renderer>();
@@ -99,6 +101,12 @@ public class MovementHandler : MonoBehaviour
     {
         get { return pickedBerry.enabled; }
         set { pickedBerry.enabled = value; }
+    }
+
+    public bool HasKey
+    {
+        get { return pickedKey.enabled; }
+        set { pickedKey.enabled = value; }
     }
 
     public bool IsHuman
@@ -193,6 +201,11 @@ public class MovementHandler : MonoBehaviour
             HasGarlic = true;
         }
 
+        if (item.Find("Key") != null)
+        {
+            HasKey = true;
+        }
+
         if (HasFlower && HasGarlic)
         {
             IsMouse = true;
@@ -209,6 +222,14 @@ public class MovementHandler : MonoBehaviour
             IsMouse = false;
             HasMushroom = false;
             HasBerry = false;
+        }
+        if (HasKey)
+        {
+           // CanOpenChest = true;
+            HasMushroom = false;
+            HasBerry = false;
+            HasFlower = false;
+            HasGarlic = false;
         }
 
         if (item.Find("Spider") != null)
