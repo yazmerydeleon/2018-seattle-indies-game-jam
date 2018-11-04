@@ -133,9 +133,6 @@ public class MovementHandler : MonoBehaviour
         }
     }
 
-
-
-
     private void RevealBlock()
     {
         var currentBlock = GetCurrentBlock();
