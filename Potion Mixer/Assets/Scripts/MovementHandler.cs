@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MovementHandler : MonoBehaviour
 {
     public Material dirtMaterial;
+    public GameObject pickupEffect;
 
     private Renderer pickedFlower;
     private Renderer pickedGarlic;
@@ -199,26 +200,31 @@ public class MovementHandler : MonoBehaviour
         if (item.Find("Flower") != null)
         {
             HasFlower = true;
+            Instantiate(pickupEffect, transform.position, Quaternion.Euler(-90, 0, 0));
         }
 
         if (item.Find("Mushroom") != null)
         {
             HasMushroom = true;
+            Instantiate(pickupEffect, transform.position, Quaternion.Euler(-90, 0, 0));
         }
 
         if (item.Find("Berry") != null)
         {
             HasBerry = true;
+            Instantiate(pickupEffect, transform.position, Quaternion.Euler(-90, 0, 0));
         }
 
         if (item.Find("Garlic") != null)
         {
             HasGarlic = true;
+            Instantiate(pickupEffect, transform.position, Quaternion.Euler(-90, 0, 0));
         }
 
         if (item.Find("Key") != null)
         {
             HasKey = true;
+            Instantiate(pickupEffect, transform.position, Quaternion.Euler(-90, 0, 0));
         }
 
         if (item.Find("Spider") != null)

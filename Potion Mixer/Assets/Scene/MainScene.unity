@@ -2274,6 +2274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dirtMaterial: {fileID: 2100000, guid: 15821c797d3fa63428f7528b65c8371d, type: 2}
+  pickupEffect: {fileID: 1659181771846054, guid: a4b30c6f832da5c428a83d68e5e0d4e3,
+    type: 2}
 --- !u!4 &308907288
 Transform:
   m_ObjectHideFlags: 0
