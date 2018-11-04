@@ -15,9 +15,9 @@ public class MovementHandler : MonoBehaviour
     private Renderer pickedKey;
 
     private Renderer human;
+    private Renderer humanDirection;
     private Renderer mouse;
     private Renderer frog;
-    private Renderer chestClosed;
     private Renderer chestOpened;
 
     private Renderer life1;
@@ -38,8 +38,8 @@ public class MovementHandler : MonoBehaviour
         pickedBerry = GameObject.Find("Picked Berry").GetComponent<Renderer>();
         pickedKey = GameObject.Find("Picked Key").GetComponent<Renderer>();
         human = GameObject.Find("Human").GetComponent<Renderer>();
+        humanDirection = GameObject.Find("HumanDirection").GetComponent<Renderer>();
         mouse = GameObject.Find("Mouse").GetComponent<Renderer>();
-        chestClosed = GameObject.Find("Chest Closed").GetComponent<Renderer>();
         chestOpened = GameObject.Find("Chest Opened").GetComponent<Renderer>();
         frog = GameObject.Find("Frog").GetComponent<Renderer>();
         life1 = GameObject.Find("Life1").GetComponent<Renderer>();
@@ -126,7 +126,11 @@ public class MovementHandler : MonoBehaviour
     public bool IsHuman
     {
         get { return human.enabled; }
-        set { human.enabled = value; }
+        set
+        {
+            human.enabled = value;
+            humanDirection.enabled = value;
+        }
     }
 
     public bool IsMouse
@@ -199,7 +203,7 @@ public class MovementHandler : MonoBehaviour
             return;
         }
 
-        item.transform.position = new Vector3(item.transform.position.x, .25f, item.transform.position.z);
+        item.transform.position = new Vector3(item.transform.position.x, .15f, item.transform.position.z);
 
         if (item.Find("Flower") != null)
         {
@@ -226,6 +230,20 @@ public class MovementHandler : MonoBehaviour
             HasKey = true;
         }
 
+        if (item.Find("Spider") != null)
+        {
+            PlayerLives--;
+            if (PlayerLives == 0)
+            {
+                gameOver.enabled = true;
+            }
+        }
+
+        MakePotion();
+    }
+
+    private void MakePotion()
+    {
         if (HasFlower && HasGarlic)
         {
             IsMouse = true;
@@ -243,16 +261,6 @@ public class MovementHandler : MonoBehaviour
             HasMushroom = false;
             HasBerry = false;
         }
-
-        if (item.Find("Spider") != null)
-        {
-            PlayerLives--;
-            if (PlayerLives == 0)
-            {
-                gameOver.enabled = true;
-            }
-        }
-
     }
 
     private Transform GetCurrentBlock()
