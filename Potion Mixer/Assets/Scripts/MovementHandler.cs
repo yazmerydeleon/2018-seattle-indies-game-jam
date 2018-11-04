@@ -10,8 +10,12 @@ public class MovementHandler : MonoBehaviour
 
     private Renderer pickedFlower;
     private Renderer pickedGarlic;
+    private Renderer pickedMushroom;
+    private Renderer pickedBerry;
+
     private Renderer human;
     private Renderer mouse;
+    private Renderer frog;
 
     private Renderer life1;
     private Renderer life2;
@@ -26,8 +30,11 @@ public class MovementHandler : MonoBehaviour
     {
         pickedFlower = GameObject.Find("Picked Flower").GetComponent<Renderer>();
         pickedGarlic = GameObject.Find("Picked Garlic").GetComponent<Renderer>();
+        pickedMushroom = GameObject.Find("Picked Mushroom").GetComponent<Renderer>();
+        pickedBerry = GameObject.Find("Picked Berry").GetComponent<Renderer>();
         human = GameObject.Find("Human").GetComponent<Renderer>();
         mouse = GameObject.Find("Mouse").GetComponent<Renderer>();
+        frog = GameObject.Find("Frog").GetComponent<Renderer>();
         life1 = GameObject.Find("Life1").GetComponent<Renderer>();
         life2 = GameObject.Find("Life2").GetComponent<Renderer>();
         life3 = GameObject.Find("Life3").GetComponent<Renderer>();
@@ -82,6 +89,18 @@ public class MovementHandler : MonoBehaviour
         set { pickedGarlic.enabled = value; }
     }
 
+    public bool HasMushroom
+    {
+        get { return pickedMushroom.enabled; }
+        set { pickedMushroom.enabled = value; }
+    }
+
+    public bool HasBerry
+    {
+        get { return pickedBerry.enabled; }
+        set { pickedBerry.enabled = value; }
+    }
+
     public bool IsHuman
     {
         get { return human.enabled; }
@@ -92,6 +111,12 @@ public class MovementHandler : MonoBehaviour
     {
         get { return mouse.enabled; }
         set { mouse.enabled = value; }
+    }
+
+    public bool IsFrog
+    {
+        get { return frog.enabled; }
+        set { frog.enabled = value; }
     }
 
     public int CurrentHorizontalPosition
@@ -153,6 +178,16 @@ public class MovementHandler : MonoBehaviour
             HasFlower = true;
         }
 
+        if (item.Find("Mushroom") != null)
+        {
+            HasMushroom = true;
+        }
+
+        if (item.Find("Berry") != null)
+        {
+            HasBerry = true;
+        }
+
         if (item.Find("Garlic") != null)
         {
             HasGarlic = true;
@@ -160,10 +195,20 @@ public class MovementHandler : MonoBehaviour
 
         if (HasFlower && HasGarlic)
         {
-            IsHuman = false;
             IsMouse = true;
+            IsHuman = false;
+            IsFrog = false;
             HasFlower = false;
             HasGarlic = false;
+        }
+
+        if (HasMushroom && HasBerry)
+        {
+            IsFrog = true;
+            IsHuman = false;
+            IsMouse = false;
+            HasMushroom = false;
+            HasBerry = false;
         }
 
         if (item.Find("Spider") != null)
@@ -236,6 +281,11 @@ public class MovementHandler : MonoBehaviour
         }
 
         if (IsMouse && nextBlock.CompareTag("Rock"))
+        {
+            return true;
+        }
+
+        if (IsFrog && nextBlock.CompareTag("Water"))
         {
             return true;
         }
