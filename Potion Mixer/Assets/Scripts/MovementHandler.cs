@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class MovementHandler : MonoBehaviour
 {
+    public Material dirtMaterial;
+
     private Renderer pickedFlower;
     private Renderer pickedGarlic;
     private Renderer human;
@@ -137,6 +139,9 @@ public class MovementHandler : MonoBehaviour
     private void RevealBlock()
     {
         var currentBlock = GetCurrentBlock();
+
+        currentBlock.GetComponent<Renderer>().material = dirtMaterial;
+
         var item = currentBlock.transform.Find("Item Container");
 
         if (item == null)
