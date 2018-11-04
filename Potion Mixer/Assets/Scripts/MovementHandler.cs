@@ -17,6 +17,8 @@ public class MovementHandler : MonoBehaviour
     private Renderer human;
     private Renderer mouse;
     private Renderer frog;
+    private Renderer chestClosed;
+    private Renderer chestOpened;
 
     private Renderer life1;
     private Renderer life2;
@@ -36,6 +38,8 @@ public class MovementHandler : MonoBehaviour
         pickedKey = GameObject.Find("Picked Key").GetComponent<Renderer>();
         human = GameObject.Find("Human").GetComponent<Renderer>();
         mouse = GameObject.Find("Mouse").GetComponent<Renderer>();
+        chestClosed = GameObject.Find("Chest Closed").GetComponent<Renderer>();
+        chestOpened = GameObject.Find("Chest Opened").GetComponent<Renderer>();
         frog = GameObject.Find("Frog").GetComponent<Renderer>();
         life1 = GameObject.Find("Life1").GetComponent<Renderer>();
         life2 = GameObject.Find("Life2").GetComponent<Renderer>();
@@ -119,6 +123,12 @@ public class MovementHandler : MonoBehaviour
     {
         get { return mouse.enabled; }
         set { mouse.enabled = value; }
+    }
+
+    public bool IsChestOpened
+    {
+        get { return chestOpened.enabled; }
+        set { chestOpened.enabled = value; }
     }
 
     public bool IsFrog
@@ -223,14 +233,6 @@ public class MovementHandler : MonoBehaviour
             HasMushroom = false;
             HasBerry = false;
         }
-        if (HasKey)
-        {
-           // CanOpenChest = true;
-            HasMushroom = false;
-            HasBerry = false;
-            HasFlower = false;
-            HasGarlic = false;
-        }
 
         if (item.Find("Spider") != null)
         {
@@ -309,6 +311,13 @@ public class MovementHandler : MonoBehaviour
         if (IsFrog && nextBlock.CompareTag("Water"))
         {
             return true;
+        }
+
+        if (HasKey && nextBlock.CompareTag("Chest Block"))
+        {
+            IsChestOpened = true;
+            HasKey = false;
+            return false;
         }
 
         return false;
