@@ -7,6 +7,14 @@ using System.Linq;
 
 public class MovementHandler : MonoBehaviour
 {
+    public AudioClip BrokenBone;
+    public AudioClip FairyMagicWand;
+    public AudioClip MagicTwinkle;
+    public AudioClip MonsterAttack;
+
+    // the component that Unity uses to play your clip
+    public AudioSource MusicSource;
+
     public Material dirtMaterial;
     public GameObject pickupEffect;
     public GameObject changeFormEffect;
@@ -213,35 +221,41 @@ public class MovementHandler : MonoBehaviour
         if (item.Find("Flower") != null)
         {
             HasFlower = true;
+            PlaySound(MagicTwinkle);
             Instantiate(pickupEffect, transform.position, Quaternion.Euler(-90, 0, 0));
         }
 
         if (item.Find("Mushroom") != null)
         {
+            PlaySound(MagicTwinkle);
             HasMushroom = true;
             Instantiate(pickupEffect, transform.position, Quaternion.Euler(-90, 0, 0));
         }
 
         if (item.Find("Berry") != null)
         {
+            PlaySound(MagicTwinkle);
             HasBerry = true;
             Instantiate(pickupEffect, transform.position, Quaternion.Euler(-90, 0, 0));
         }
 
         if (item.Find("Garlic") != null)
         {
+            PlaySound(MagicTwinkle);
             HasGarlic = true;
             Instantiate(pickupEffect, transform.position, Quaternion.Euler(-90, 0, 0));
         }
 
         if (item.Find("Key") != null)
         {
+            PlaySound(MagicTwinkle);
             HasKey = true;
             Instantiate(pickupEffect, transform.position, Quaternion.Euler(-90, 0, 0));
         }
 
         if (item.Find("Spider") != null)
         {
+            PlaySound(MonsterAttack);
             PlayerLives--;
             Instantiate(spiderDamageEffect, transform.position, Quaternion.Euler(0, 0, 0));
             if (PlayerLives == 0)
@@ -253,10 +267,18 @@ public class MovementHandler : MonoBehaviour
         MakePotion();
     }
 
+    private void PlaySound(AudioClip clip)
+    {
+        MusicSource.clip = clip;
+        MusicSource.Play();
+
+    }
+
     private void MakePotion()
     {
         if (HasFlower && HasGarlic)
         {
+            PlaySound(FairyMagicWand);
             IsMouse = true;
             IsHuman = false;
             IsFrog = false;
@@ -267,6 +289,7 @@ public class MovementHandler : MonoBehaviour
 
         if (HasMushroom && HasBerry)
         {
+            PlaySound(FairyMagicWand);
             IsFrog = true;
             IsHuman = false;
             IsMouse = false;
@@ -354,6 +377,7 @@ public class MovementHandler : MonoBehaviour
 
         if (HasKey && nextBlock.CompareTag("Chest Block"))
         {
+            PlaySound(FairyMagicWand);
             IsChestOpened = true;
             HasKey = false;
             Instantiate(treasureEffect, transform.position, Quaternion.Euler(0, 0, 0));
