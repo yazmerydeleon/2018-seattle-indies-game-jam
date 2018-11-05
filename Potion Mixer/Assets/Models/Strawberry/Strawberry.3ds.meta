@@ -1,0 +1,210 @@
+fileFormatVersion: 2
+guid: 4b06a978a359d2946a413722d24ed172
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Camera
+    100002: Camera.target
+    100004: Cap_1
+    100006: Cap_11
+    100008: Cap_12
+    100010: Front
+    100012: Front_Of_S
+    100014: Global_Lig
+    100016: Left_Softb
+    100018: Light
+    100020: Light1
+    100022: Light2
+    100024: Object01
+    100026: Object02
+    100028: OverHead_S
+    100030: Replace_Me
+    100032: Right_Soft
+    100034: Room
+    100036: Softb
+    100038: Softb1
+    100040: Softbox
+    100042: Softbox_As
+    100044: straw
+    100046: //RootNode
+    100048: strawberry
+    100050: Studio_U
+    400000: Camera
+    400002: Camera.target
+    400004: Cap_1
+    400006: Cap_11
+    400008: Cap_12
+    400010: Front
+    400012: Front_Of_S
+    400014: Global_Lig
+    400016: Left_Softb
+    400018: Light
+    400020: Light1
+    400022: Light2
+    400024: Object01
+    400026: Object02
+    400028: OverHead_S
+    400030: Replace_Me
+    400032: Right_Soft
+    400034: Room
+    400036: Softb
+    400038: Softb1
+    400040: Softbox
+    400042: Softbox_As
+    400044: straw
+    400046: //RootNode
+    400048: strawberry
+    400050: Studio_U
+    2100000: Strawberry
+    2100002: Mat
+    2100004: Softbox Texture
+    2100006: Softbox Te1
+    2100008: Black
+    2100010: Softbox Te2
+    2100012: Black1
+    2100014: Cyc Texture
+    2100016: Room Texture
+    2300000: Cap_1
+    2300002: Cap_11
+    2300004: Cap_12
+    2300006: Front
+    2300008: Front_Of_S
+    2300010: Global_Lig
+    2300012: Left_Softb
+    2300014: Object01
+    2300016: Object02
+    2300018: OverHead_S
+    2300020: Replace_Me
+    2300022: Right_Soft
+    2300024: Room
+    2300026: Softb
+    2300028: Softb1
+    2300030: Softbox
+    2300032: Softbox_As
+    2300034: straw
+    2300036: strawberry
+    2300038: Studio_U
+    3300000: Cap_1
+    3300002: Cap_11
+    3300004: Cap_12
+    3300006: Front
+    3300008: Front_Of_S
+    3300010: Global_Lig
+    3300012: Left_Softb
+    3300014: Object01
+    3300016: Object02
+    3300018: OverHead_S
+    3300020: Replace_Me
+    3300022: Right_Soft
+    3300024: Room
+    3300026: Softb
+    3300028: Softb1
+    3300030: Softbox
+    3300032: Softbox_As
+    3300034: straw
+    3300036: strawberry
+    3300038: Studio_U
+    4300000: Replace_Me
+    4300002: strawberry
+    4300004: Object01
+    4300006: straw
+    4300008: Object02
+    4300010: Room
+    4300012: Studio_U
+    4300014: Left_Softb
+    4300016: Front_Of_S
+    4300018: Softbox_As
+    4300020: Cap_1
+    4300022: Right_Soft
+    4300024: Front
+    4300026: Softb
+    4300028: Cap_11
+    4300030: OverHead_S
+    4300032: Softbox
+    4300034: Softb1
+    4300036: Cap_12
+    4300038: Global_Lig
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

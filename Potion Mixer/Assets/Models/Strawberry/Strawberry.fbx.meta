@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: ff8d86262d63c1942bb6fe4be209d516
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Camera
+    100002: Cap_1
+    100004: Cap_1_2
+    100006: Cap_1_3
+    100008: Front_Of_Softbox
+    100010: Front_Of_Softbox_2
+    100012: Global_Light_Switch
+    100014: Left_Softbox
+    100016: Light
+    100018: Light_2
+    100020: Light_3
+    100022: Light_Vector
+    100024: Object01
+    100026: Object02
+    100028: OverHead_Softbox
+    100030: Place_this_at_the_bottom_of_the_scene_to_turn_off_ALL_the_lights
+    100032: RectangleLarge
+    100034: RectangleLarge_2
+    100036: RectangleLarge_3
+    100038: RectangleMedium
+    100040: RectangleMedium_2
+    100042: RectangleMedium_3
+    100044: RectangleSmall
+    100046: RectangleSmall_2
+    100048: RectangleSmall_3
+    100050: Replace_Me
+    100052: Right_Softbox
+    100054: Room
+    100056: Softbox
+    100058: Softbox_Assembly
+    100060: Softbox_Assembly_2
+    100062: Softbox_Assembly_3
+    100064: //RootNode
+    100066: strawberry
+    100068: strawberry_half
+    100070: Studio_U
+    400000: Camera
+    400002: Cap_1
+    400004: Cap_1_2
+    400006: Cap_1_3
+    400008: Front_Of_Softbox
+    400010: Front_Of_Softbox_2
+    400012: Global_Light_Switch
+    400014: Left_Softbox
+    400016: Light
+    400018: Light_2
+    400020: Light_3
+    400022: Light_Vector
+    400024: Object01
+    400026: Object02
+    400028: OverHead_Softbox
+    400030: Place_this_at_the_bottom_of_the_scene_to_turn_off_ALL_the_lights
+    400032: RectangleLarge
+    400034: RectangleLarge_2
+    400036: RectangleLarge_3
+    400038: RectangleMedium
+    400040: RectangleMedium_2
+    400042: RectangleMedium_3
+    400044: RectangleSmall
+    400046: RectangleSmall_2
+    400048: RectangleSmall_3
+    400050: Replace_Me
+    400052: Right_Softbox
+    400054: Room
+    400056: Softbox
+    400058: Softbox_Assembly
+    400060: Softbox_Assembly_2
+    400062: Softbox_Assembly_3
+    400064: //RootNode
+    400066: strawberry
+    400068: strawberry_half
+    400070: Studio_U
+    2000000: Camera
+    2100000: Strawberry
+    2100002: Room Texture
+    2100004: Cyc Texture
+    2100006: Softbox Texture
+    2100008: Black
+    2100010: No Name
+    2100012: Mat
+    2300000: Cap_1
+    2300002: Cap_1_2
+    2300004: Cap_1_3
+    2300006: Front_Of_Softbox
+    2300008: Front_Of_Softbox_2
+    2300010: Object01
+    2300012: Object02
+    2300014: Room
+    2300016: Softbox
+    2300018: Softbox_Assembly
+    2300020: Softbox_Assembly_2
+    2300022: Softbox_Assembly_3
+    2300024: Studio_U
+    3300000: Cap_1
+    3300002: Cap_1_2
+    3300004: Cap_1_3
+    3300006: Front_Of_Softbox
+    3300008: Front_Of_Softbox_2
+    3300010: Object01
+    3300012: Object02
+    3300014: Room
+    3300016: Softbox
+    3300018: Softbox_Assembly
+    3300020: Softbox_Assembly_2
+    3300022: Softbox_Assembly_3
+    3300024: Studio_U
+    4300000: Object01
+    4300002: Object02
+    4300004: Room
+    4300006: Studio_U
+    4300008: Front_Of_Softbox
+    4300010: Softbox_Assembly
+    4300012: Cap_1
+    4300014: Front_Of_Softbox_2
+    4300016: Softbox_Assembly_2
+    4300018: Cap_1_2
+    4300020: Softbox
+    4300022: Softbox_Assembly_3
+    4300024: Cap_1_3
+    7400000: C4D Animation Take
+    9500000: //RootNode
+    10800000: Light
+    10800002: Light_2
+    10800004: Light_3
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
