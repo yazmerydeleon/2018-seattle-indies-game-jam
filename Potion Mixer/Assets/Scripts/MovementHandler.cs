@@ -8,6 +8,9 @@ public class MovementHandler : MonoBehaviour
 {
     public Material dirtMaterial;
     public GameObject pickupEffect;
+    public GameObject changeFormEffect;
+    public GameObject spiderDamageEffect;
+    public GameObject treasureEffect;
 
     private Renderer pickedFlower;
     private Renderer pickedGarlic;
@@ -230,6 +233,7 @@ public class MovementHandler : MonoBehaviour
         if (item.Find("Spider") != null)
         {
             PlayerLives--;
+            Instantiate(spiderDamageEffect, transform.position, Quaternion.Euler(0, 0, 0));
             if (PlayerLives == 0)
             {
                 gameOver.enabled = true;
@@ -248,6 +252,7 @@ public class MovementHandler : MonoBehaviour
             IsFrog = false;
             HasFlower = false;
             HasGarlic = false;
+            Instantiate(changeFormEffect, transform.position, Quaternion.Euler(0, 0, 45));
         }
 
         if (HasMushroom && HasBerry)
@@ -257,6 +262,7 @@ public class MovementHandler : MonoBehaviour
             IsMouse = false;
             HasMushroom = false;
             HasBerry = false;
+            Instantiate(changeFormEffect, transform.position, Quaternion.Euler(0, 0, 45));
         }
     }
 
@@ -340,6 +346,7 @@ public class MovementHandler : MonoBehaviour
         {
             IsChestOpened = true;
             HasKey = false;
+            Instantiate(treasureEffect, transform.position, Quaternion.Euler(0, 0, 0));
             youWon.enabled = true;
             return false;
         }

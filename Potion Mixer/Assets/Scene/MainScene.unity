@@ -2276,6 +2276,12 @@ MonoBehaviour:
   dirtMaterial: {fileID: 2100000, guid: 15821c797d3fa63428f7528b65c8371d, type: 2}
   pickupEffect: {fileID: 1659181771846054, guid: a4b30c6f832da5c428a83d68e5e0d4e3,
     type: 2}
+  changeFormEffect: {fileID: 1620136812018342, guid: f2a7c24831d64714aaa1cccea4323dd1,
+    type: 2}
+  spiderDamageEffect: {fileID: 1335604323930784, guid: 17eedf326aaa7a34cb61fc131b123915,
+    type: 2}
+  treasureEffect: {fileID: 1128292111914566, guid: 9604beb0bd6324d4ebc6faa46380c5f1,
+    type: 2}
 --- !u!4 &308907288
 Transform:
   m_ObjectHideFlags: 0
